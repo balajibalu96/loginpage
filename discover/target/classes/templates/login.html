@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+	<TITLE>JavaScript Validation</TITLE>
+	<SCRIPT type="text/javascript">
+	function validateUsernamePassword(this_form)
+	{
+		var userName = this_form.user_name.value;
+		var pass1 = this_form.password1.value;
+		var pass2 = this_form.password2.value;
+		if(userName=="")
+		{
+			alert("Please enter your username.");	
+			this_form.user_name.focus();
+			return false;
+		}
+		if(userName.length<6)
+		{
+			alert("Username must be at least of 6 characters.");	
+			this_form.user_name.focus();
+			return false;
+		}
+		if(pass1=="")
+		{
+			alert("Please enter your password.");	
+			this_form.password1.focus();
+			return false;
+		}
+		if(pass1.length<8)
+		{
+			alert("Password must contain at least of 8 digits");	
+			this_form.password1.focus();
+			return false;
+		}
+		if(pass2=="")
+		{
+			alert("Please re-enter your password for confirmation.");	
+			this_form.password2.focus();
+			return false;
+		}
+		if(pass1.length>=8 && pass2.length>=8 )
+		{
+			if(pass1!=pass2)
+			{
+					alert("Sorry! Password mismatched! Please try again.");	
+					return false;
+			}
+		}	
+		return true;
+	}
+	</SCRIPT>
+</HEAD>
+
+<BODY>
+<FORM action="#" onsubmit="return validateUsernamePassword(this)" method="Post">
+	Enter Username: <INPUT type="text" name="user_name"/><BR/>
+	Enter Password: <INPUT type="password" name="password1"/><BR/>
+	Re-enter Password: <INPUT type="password" name="password2"/><BR/>
+	<INPUT type="submit" value="Login"/>
+</FORM>
+
+</BODY>
+</HTML>
+
+<FORM action="#" onsubmit="return validateRequiredFields(this)" method="Post">
+	Username: <input type= "text" name="usrname"/><span style="color:red;">*</span><br/>
+	Password: <input type= "password" name="usrpassword"/><span style="color:red;">*</span><br/>
+	<INPUT type="submit" value="Login"/>
+</FORM>
+
+</BODY>
+</HTML>   
+    <title>Login</title>    
+    <link rel="stylesheet" type="text/css" href="css/style.css">    
+</head>    
+<body>    
+    <h2>Welcome To Discover Login Page</h2><br>    
+    <div class="login">    
+    <form name="f" th:action="@{/login}" method="get">   
+        <label><b>User Name     
+        </b>    
+        </label>    
+        <input type="text" name="Uname" id="Uname" placeholder="Username">    
+        <br><br>    
+        <label><b>Password     
+        </b>    
+        </label>    
+        <input type="Password" name="Pass" id="Pass" placeholder="Password">    
+        <br><br>    
+        <input type="button" name="log" id="log" value="Log In Here">       
+        <br><br>    
+        <input type="checkbox" id="check">    
+        <span>Remember me</span>    
+        <br><br>    
+        Forgot <a href="#">Password</a>    
+    </form>     
+</div>    
+</body>    
+</html>     
